@@ -5,11 +5,16 @@ function getDogImage() {
   $('form').submit(event => {
     event.preventDefault();
     const qtyDog = $(event.currentTarget).find('input[name="number-of-dogs"]').val();
-  fetch(`https://dog.ceo/api/breeds/image/random/${qtyDog}`)
-    .then(response => response.json())
-    .then(responseJson => 
-      displayResults(responseJson))
-    .catch(error => alert('Something went wrong. Try again later.'));
+    if(qtyDog > 0 & qtyDog < 51) {
+      fetch(`https://dog.ceo/api/breeds/image/random/${qtyDog}`)
+      .then(response => response.json())
+      .then(responseJson => 
+        displayResults(responseJson))
+      .catch(error => alert('Something went wrong. Try again later.'));
+    }
+    else {
+      alert('Please choose number between 1 and 50.');
+    }
   });
 }
 
