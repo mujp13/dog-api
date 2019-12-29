@@ -20,6 +20,7 @@ function getDogImage() {
 
 function displayResults(responseJson) {
   console.log(responseJson);
+  $('.results').empty();
   //replace the existing image with the new one
   for(let i=0; i<responseJson.message.length; i++) {
     $('.results').append(`<img src="${responseJson.message[i]}" class="results-img">`);
